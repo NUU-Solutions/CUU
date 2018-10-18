@@ -3,7 +3,7 @@
 ## C++ Serialization. Simplified.
 * Serialize classes with **a single line of code**
 * STL support
-* Binary and Text formats (JSON, XML, CUU, ...)
+* Binary and Text formats (CUU, JSON, XML, ...)
 * Easy to extend
 
 ## Example
@@ -24,10 +24,10 @@ CUU( Customer, Name, VIP, PurchaseHistory );
 ```
 Create a customer and save it
 ```
-Customer MainCustomer{"Carl Cuttler", true, {1,2,3}};
+Customer MainCustomer{ "Carl Cuttler", true, {1,2,3} };
 SaveToFile<CUU>( "Customer.cuu", MainCustomer );
 ```
-resulting in the CUU file
+resulting in the file "Customer.cuu":
 ```
 {
     MainCustomer: 
@@ -43,4 +43,4 @@ resulting in the CUU file
     }
 }
 ```
-Save to binary, JSON, or XML if you want to.
+Similarly save to binary, JSON, or XML.
