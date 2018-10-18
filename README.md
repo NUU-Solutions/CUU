@@ -18,7 +18,9 @@ A recent project required saving and reloading relatively large custom data
 * in binary format (for performance reasons) 
 * in human readable form (for easy inspection)
 
-I spent weeks with boost.serialization, cereal and libs11n. But, for various reasons, they just did not cut it. So, I finally decided to roll my own, making heavy use of C++11/C++17 features. This is the result. **The focus is on simplicity, usability and more simplicity!**
+I spent weeks with boost.serialization, cereal and libs11n. But, for various reasons, they just did not cut it. So, I finally decided to roll my own, making heavy use of crucial C++11/C++17 features. This is the result. 
+
+**The focus is on simplicity, usability and more simplicity!**
 
 ## Example
 Consider the following Order and Customer classes
