@@ -1,7 +1,7 @@
 #  CUU
 
 ## C++ Serialization. Simplified.
-* Enable serialization of classes with **a single line of code**
+* Enable serialization of classes **with a single line of code**
 * STL support
 * Binary and Text formats (CUU, JSON, XML, ...)
 * Easy to extend and customize
