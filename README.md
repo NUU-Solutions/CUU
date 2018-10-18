@@ -2,29 +2,38 @@
 
 ## C++ Serialization. Simplified.
 * Serialize classes with **a single line of code**
+* Composition of classes works out of the box
 * STL support
 * Binary and Text formats (CUU, JSON, XML, ...)
 * Easy to extend
 
 ## Example
-Consider a simple customer class
+Consider some simple order and customer classes
 ```
+class Order
+{
+public:
+    int     ID;
+    double  Total;
+};
+
 class Customer
 {
 public:
     std::string         Name;
     bool                VIP = false;
-    std::vector<int>    PurchaseHistory;
+    std::vector<Order>  OrderHistory;
 };
 ```
-Equip it with CUU funtionality
+Equip the classes with CUU funtionality
 ```
 #include "cuu.h"
-CUU( Customer, Name, VIP, PurchaseHistory );
+CUU( Order, ID, Total );
+CUU( Customer, Name, VIP, OrderHistory );
 ```
 Create a customer and save it
 ```
-Customer MainCustomer{ "Carl Cuttler", true, {1,2,3} };
+MainCustomer = Customer( "Carl Cuttler", true, { {5001, 1.99}, {5002, 2.79}, {5003, 3.69} } );
 SaveToFile<CUU>( "Customer.cuu", MainCustomer );
 ```
 resulting in the file "Customer.cuu":
@@ -34,12 +43,22 @@ resulting in the file "Customer.cuu":
     {
         Name: "Carl Cuttler", 
         VIP: true, 
-        PurchaseHistory: 
+        OrderHistory: 
         [
-            1, 
-            2, 
-            3
+            {
+                ID: 5001, 
+                Total: 1.99
+            }, 
+            {
+                ID: 5002, 
+                Total: 2.79
+            }, 
+            {
+                ID: 5003, 
+                Total: 3.69
+            }
         ]
+  
     }
 }
 ```
