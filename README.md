@@ -1,16 +1,16 @@
 #  CUU
 
 ## C++ Serialization. Simplified.
-* Serialize classes with **a single line of code**
-* Composition works out of the box
+* Enable serialization of classes with **a single line of code**
 * STL support
 * Binary and Text formats (CUU, JSON, XML, ...)
-* Header-only library
-* Easy to extend
+* Easy to extend and customize
 
 ## Requirements
+* Header-only (just #include "cuu.h"), no 3rd party libraries
 * C++17
-* Works with MSVC for now (making this potable should not be a big issue, please contact me)
+* Works with Visual Studio 2017 for now 
+* Portability should be quite easy, but I don't have the resources. Please contact me, if you do.
 
 ## Motivation
 A recent project of mine required saving relatively large custom data 
