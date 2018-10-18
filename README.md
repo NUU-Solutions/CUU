@@ -1,2 +1,2 @@
-# CUU - C++ Serialization. Simplified.
+# Serialization. Simplified. Just CUU.
 
