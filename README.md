@@ -52,26 +52,23 @@ SaveToFile<CUU>( "Customer.cuu", MainCustomer );
 resulting in the file "Customer.cuu":
 ```
 {
-    MainCustomer: 
-    {
-        Name: "Carl C. Cuttler", 
-        VIP: true, 
-        OrderHistory: 
-        [
-            {
-                ID: 5001, 
-                Total: 1.99
-            }, 
-            {
-                ID: 5002, 
-                Total: 2.79
-            }, 
-            {
-                ID: 5003, 
-                Total: 3.69
-            }
-        ]  
-    }
+    Name: "Carl C. Cuttler", 
+    VIP: true, 
+    OrderHistory: 
+    [
+        {
+            ID: 5001, 
+            Total: 1.99
+        }, 
+        {
+            ID: 5002, 
+            Total: 2.79
+        }, 
+        {
+            ID: 5003, 
+            Total: 3.69
+        }
+    ]  
 }
 ```
 to be loaded again later by
@@ -80,3 +77,12 @@ Customer MainCustomer;
 LoadFromFile<CUU>( "Customer.cuu", MainCustomer );
 ```
 The same goes for JSON, XML and binary formats.
+
+A container of customers will work out of the box:
+```
+std::vector<Customer> AllCustomers;
+// ... fill in customers ...
+SaveToFile<CUU>( "Customers.cuu", AllCustomers );
+// ... later ...
+LoadFromFile<CUU>( "Customers.cuu", AllCustomers );
+```
