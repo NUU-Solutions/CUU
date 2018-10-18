@@ -80,6 +80,9 @@ LoadFromFile<CUU>( "Customer.cuu", MainCustomer );
 ```
 The same goes for JSON, XML and binary formats. Here is the XML version:
 ```
+SaveToFile<XML>( "Customer.xml", MainCustomer );
+```
+```
 <?xml version="1.0"?>
 <root>
     <Name>Carl C. Cuttler</Name>
