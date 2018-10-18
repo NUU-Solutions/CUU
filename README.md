@@ -12,6 +12,13 @@
 * C++17
 * Works with MSVC for now (making this potable should not be a big issue, please contact me)
 
+## Motivation
+A recent project of mine required saving relatively large custom data 
+* in binary format (for performance reasons) 
+* in human readable form (for easy inspection)
+
+I spendt weeks with boost.serialization, cereal and libs11n. But, for various reasons, they just did not cut it. So I finally decided to roll my own. This is the result. **My focus is on simplicty, usability and more simpicity!**
+
 ## Example
 Consider the following Order and Customer classes
 ```
@@ -72,13 +79,4 @@ and load it again later by just
 Customer MainCustomer;
 LoadFromFile<CUU>( "Customer.cuu", MainCustomer );
 ```
-The same goes for JSON, XML or binary formats
-
-## Motivation
-A recent project of mine required saving relatively large files 
-* in binary format (performance reasons) 
-* in human readable form (for easy inspection)
-
-After spending weeks with boost.serialization, cereal and libs11n, which just did not cut it,
-I finally decided to roll it on my own.
-The 
+The same goes for JSON, XML or binary formats.
