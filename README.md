@@ -4,6 +4,7 @@
 * Enable serialization of classes **with a single line of code**
 * STL support
 * Binary and Text formats (CUU, JSON, XML, ...)
+* Supports composite and polymorhpic classes
 * Easy to extend and customize
 
 ## Requirements
