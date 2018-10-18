@@ -37,13 +37,13 @@ public:
     std::vector<Order>  OrderHistory;
 };
 ```
-Equip them with CUU funtionality (one line per class)
+Equip them with CUU funtionality 
 ```
 #include "cuu.h"
 CUU( Order, ID, Total );
 CUU( Customer, Name, VIP, OrderHistory );
 ```
-Create a customer and save it (one line of code)
+Create a customer and save it
 ```
 MainCustomer = Customer( "Carl C. Cuttler", true, { {5001, 1.99}, {5002, 2.79}, {5003, 3.69} } );
 SaveToFile<CUU>( "Customer.cuu", MainCustomer );
@@ -74,9 +74,9 @@ resulting in the file "Customer.cuu":
     }
 }
 ```
-and load it again later by just
+to be loaded again later by just
 ```
 Customer MainCustomer;
 LoadFromFile<CUU>( "Customer.cuu", MainCustomer );
 ```
-The same goes for JSON, XML or binary formats.
+The same goes for JSON, XML and binary formats.
