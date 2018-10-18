@@ -78,4 +78,25 @@ resulting in the file "Customer.cuu":
 Customer MainCustomer;
 LoadFromFile<CUU>( "Customer.cuu", MainCustomer );
 ```
-The same goes for JSON, XML and binary formats.
+The same goes for JSON, XML and binary formats. Here is the XML version:
+```
+<?xml version="1.0"?>
+<root>
+    <Name>Carl C. Cuttler</Name>
+    <VIP>true</VIP>
+    <OrderHistory>
+        <Order>
+            <ID>5001</ID>
+            <Total>1.99</Total>
+        </Order>
+        <Order>
+            <ID>5002</ID>
+            <Total>2.79</Total>
+        </Order>
+        <Order>
+            <ID>5003</ID>
+            <Total>3.69</Total>
+        </Order>
+    </OrderHistory>
+</root>
+```
