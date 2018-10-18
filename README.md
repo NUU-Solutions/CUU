@@ -34,7 +34,7 @@ CUU( Customer, Name, VIP, OrderHistory );
 ```
 Create a customer and save it (one line of code)
 ```
-MainCustomer = Customer( "Carl Cuttler", true, { {5001, 1.99}, {5002, 2.79}, {5003, 3.69} } );
+MainCustomer = Customer( "Carl C. Cuttler", true, { {5001, 1.99}, {5002, 2.79}, {5003, 3.69} } );
 SaveToFile<CUU>( "Customer.cuu", MainCustomer );
 ```
 resulting in the file "Customer.cuu":
@@ -42,7 +42,7 @@ resulting in the file "Customer.cuu":
 {
     MainCustomer: 
     {
-        Name: "Carl Cuttler", 
+        Name: "Carl C. Cuttler", 
         VIP: true, 
         OrderHistory: 
         [
