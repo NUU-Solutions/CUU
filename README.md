@@ -2,9 +2,9 @@
 
 ## C++ Serialization. Simplified.
 * Enable serialization of classes **with a single line of code**
+* Composite and polymorphic classes working out of the box
 * STL support
 * Binary and Text formats (CUU, JSON, XML, ...)
-* Supports composite and polymorhpic classes
 * Easy to extend and customize
 
 ## Requirements
