@@ -48,3 +48,4 @@ and load it again later
 Customer MainCustomer;
 LoadFromFile<CUU>( "Customer.cuu", MainCustomer );
 ```
+The same goes for JSON, XML or binary formats
