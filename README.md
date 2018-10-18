@@ -40,7 +40,7 @@ public:
     std::vector<Order>  OrderHistory;
 };
 ```
-Equip them with CUU funtionality 
+Equip them with **CUU functionality**
 ```
 #include "cuu.h"
 CUU( Order, ID, Total );
