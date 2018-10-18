@@ -17,7 +17,7 @@ A recent project required saving relatively large custom data
 * in binary format (for performance reasons) 
 * in human readable form (for easy inspection)
 
-I spent weeks with boost.serialization, cereal and libs11n. But, for various reasons, they just did not cut it. So, I finally decided to roll my own. This is the result. **The focus is on simplicty, usability and more simpicity!**
+I spent weeks with boost.serialization, cereal and libs11n. But, for various reasons, they just did not cut it. So, I finally decided to roll my own. This is the result. **The focus is on simplicity, usability and more simplicity!**
 
 ## Example
 Consider the following Order and Customer classes
