@@ -78,7 +78,7 @@ LoadFromFile<CUU>( "Customer.cuu", MainCustomer );
 ```
 The same goes for JSON, XML and binary formats.
 
-A container of customers will work out of the box:
+A collection of customers will work out of the box:
 ```
 std::vector<Customer> AllCustomers;
 // ... fill in customers ...
