@@ -7,17 +7,17 @@
 * Easy to extend and customize
 
 ## Requirements
-* Header-only (just #include "cuu.h"), no 3rd party libraries
+* Header-only (#include "cuu.h"), no 3rd party libraries
 * C++17
 * Works with Visual Studio 2017 for now 
 * Portability should be quite easy, but I don't have the resources. Please contact me, if you do.
 
 ## Motivation
-A recent project of mine required saving relatively large custom data 
+A recent project required saving relatively large custom data 
 * in binary format (for performance reasons) 
 * in human readable form (for easy inspection)
 
-I spendt weeks with boost.serialization, cereal and libs11n. But, for various reasons, they just did not cut it. So I finally decided to roll my own. This is the result. **My focus is on simplicty, usability and more simpicity!**
+I spent weeks with boost.serialization, cereal and libs11n. But, for various reasons, they just did not cut it. So, I finally decided to roll my own. This is the result. **The focus is on simplicty, usability and more simpicity!**
 
 ## Example
 Consider the following Order and Customer classes
