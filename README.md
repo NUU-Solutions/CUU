@@ -43,4 +43,8 @@ resulting in the file "Customer.cuu":
     }
 }
 ```
-Similarly save to binary, JSON, or XML.
+and load it again later
+```
+Customer MainCustomer;
+LoadFromFile<CUU>( "Customer.cuu", MainCustomer );
+```
