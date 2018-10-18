@@ -22,7 +22,7 @@ class Customer
 {
 public:
     std::string         Name;
-    bool                VIP = false;
+    bool                VIP;
     std::vector<Order>  OrderHistory;
 };
 ```
