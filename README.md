@@ -8,6 +8,10 @@
 * Header-only library
 * Easy to extend
 
+## Requirements
+* C++17
+* Works with MSVC for now (making this potable should not be a big issue, please contact me)
+
 ## Example
 Consider the following Order and Customer classes
 ```
@@ -69,3 +73,12 @@ Customer MainCustomer;
 LoadFromFile<CUU>( "Customer.cuu", MainCustomer );
 ```
 The same goes for JSON, XML or binary formats
+
+## Motivation
+A recent project of mine required saving relatively large files 
+* in binary format (performance reasons) 
+* in human readable form (for easy inspection)
+
+After spending weeks with boost.serialization, cereal and libs11n, which just did not cut it,
+I finally decided to roll it on my own.
+The 
