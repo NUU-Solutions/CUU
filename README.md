@@ -69,12 +69,11 @@ resulting in the file "Customer.cuu":
                 ID: 5003, 
                 Total: 3.69
             }
-        ]
-  
+        ]  
     }
 }
 ```
-to be loaded again later by just
+to be loaded again later by
 ```
 Customer MainCustomer;
 LoadFromFile<CUU>( "Customer.cuu", MainCustomer );
