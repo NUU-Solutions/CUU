@@ -1,6 +1,6 @@
 #  CUU
 
-## C++ Serialization. Simplified.
+## C++ Serialization. Clean. Usable. Universal.
 * Serialization of classes **with a single line of code**
 * Composite and polymorphic class support
 * STL support
@@ -21,6 +21,10 @@ A recent project required saving and reloading relatively large custom data
 I spent weeks with boost.serialization, cereal and libs11n. But, for various reasons, they just did not cut it. So, I finally decided to roll my own, making use of crucial C++11/C++17 features. This is the result. 
 
 **The focus is on simplicity, usability and more simplicity!**
+
+## Formats
+Supported formats are: Text, Binary, JSON and XML. 
+With minimal effort you can create your own custom format.
 
 ## Example
 Consider the following Order and Customer classes
@@ -78,28 +82,11 @@ resulting in the file "Customer.cuu":
 Customer MainCustomer;
 LoadFromFile<CUU>( "Customer.cuu", MainCustomer );
 ```
-The same goes for JSON, XML and binary formats. Here is the XML version:
+## STL Support
+All Standard Library containers and most data types are supported out of the box. 
+You can easily extend this to data types that are not yet supported.
+The following will just work as expected
 ```
-SaveToFile<XML>( "Customer.xml", MainCustomer );
-```
-```
-<?xml version="1.0"?>
-<root>
-    <Name>Carl C. Cuttler</Name>
-    <VIP>true</VIP>
-    <OrderHistory>
-        <Order>
-            <ID>5001</ID>
-            <Total>1.99</Total>
-        </Order>
-        <Order>
-            <ID>5002</ID>
-            <Total>2.79</Total>
-        </Order>
-        <Order>
-            <ID>5003</ID>
-            <Total>3.69</Total>
-        </Order>
-    </OrderHistory>
-</root>
+std::vector<Customer> CustomerList; 
+SaveToFile<CUU>( "CustomerList.cuu", CustomerList );
 ```
