@@ -82,11 +82,21 @@ resulting in the file "Customer.cuu":
 Customer MainCustomer;
 LoadFromFile<CUU>( "Customer.cuu", MainCustomer );
 ```
+
 ## STL Support
-All Standard Library containers and most data types are supported out of the box. 
-You can easily extend this to data types that are not yet supported.
-The following will just work as expected
+All Standard Library containers and most data types are supported out of the box. The following will just work as expected
 ```
 std::vector<Customer> CustomerList; 
 SaveToFile<CUU>( "CustomerList.cuu", CustomerList );
 ```
+
+## Polymorphic types
+You can easily serialize polymorphic pointers, e.g. contained in a list.
+Again, a single line of code is enough to register a base class (Shape) and its derived classes (Circle, Line, Triangle, Polygon):
+```
+CUU_REGISTER_POLYMORPHISM( Shape, Circle, Line, Triangle, Polygon );
+```
+
+## Easily Extendable
+Simple classes (POD) are handled as one-liners as seen above. 
+Looking at the code for supported types like std::vector or std::pair, you should be able to easily extend functionality to your more complex custom types. Custom split Save/Load functions as well as Get/Set methods are available.
