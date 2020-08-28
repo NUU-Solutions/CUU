@@ -4,7 +4,7 @@
 * Serialization of classes **with a single line of code**
 * Composite and polymorphic class support
 * STL support
-* Binary and Text formats (CUU, JSON, XML, ...)
+* Supported formats: Text, JSON, XML, as well as Binary
 * Easy to extend and customize
 
 ## Requirements
@@ -21,9 +21,6 @@ I spent weeks with boost.serialization, cereal and libs11n. But, for various rea
 So, I finally decided to roll my own, making use of crucial C++11/C++17/C++20 features. This is the result. 
 
 **The focus is on simplicity and usability!**
-
-## Formats
-Supported formats out of the box are: Text, JSON, XML, Binary and RAW.
 
 ## Example
 Consider the following Order and Customer classes
