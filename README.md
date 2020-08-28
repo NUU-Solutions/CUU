@@ -116,7 +116,7 @@ cuu::SaveToFile<Text>( "CustomerList.cuu", CustomerList, IDCustomerPair, Optiona
 ## Customizable/Extendable
 You can specify per class whether your prefer linebreaks or inline for the output.
 You can also specify a floating-point format or print integers in hexadecimal or any base.
-You can even define a custom overall format with different delimiters, etc., if it's not too crazy.
+You can even define a custom overall format with different custom delimiters, separators and whitespace.
 Looking at the supplied code for STL containers, pointers, and data types, you should be able
 to easily write similar code for your own custom containers and non-standard data types.
 
