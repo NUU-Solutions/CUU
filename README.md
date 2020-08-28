@@ -1,6 +1,6 @@
 #  CUU
 
-## C++ Serialization. **C**lean. **U**sable. **U**niversal.
+## C++ Serialization. **C**lean. **U**niversal. **U**sable.
 * Serialization of classes **with a single line of code**
 * Composite and polymorphic class support
 * STL support
@@ -10,8 +10,8 @@
 ## Requirements
 * Just **#include "cuu.h"** 
 * Header-only library, no dependencies
-* C++17
-* Targeting Visual Studio 2017 and 2019 (Portability to GCC/Clang should be straightforward)
+* C++20
+* Targeting Visual Studio 2019 (Portability should be straightforward)
 
 ## Motivation
 A recent project required saving and reloading relatively large custom data 
@@ -54,7 +54,7 @@ CUU( Customer, Name, VIP, OrderHistory );
 Create a customer and save it...
 ```
 MainCustomer = Customer( "Carl C. Cuttler", true, { {5001, 1.99}, {5002, 2.79}, {5003, 3.69} } );
-SaveToFile<CUU>( "Customer.cuu", MainCustomer );
+cuu::SaveToFile<Text>( "Customer.cuu", MainCustomer );
 ```
 resulting in the file "Customer.cuu":
 ```
@@ -81,24 +81,32 @@ resulting in the file "Customer.cuu":
 ...to be loaded again later by
 ```
 Customer MainCustomer;
-LoadFromFile<CUU>( "Customer.cuu", MainCustomer );
+cuu::LoadFromFile<Text>( "Customer.cuu", MainCustomer );
 ```
 
 ## STL Support
 All Standard Library containers and most data types are supported out of the box. The following will just work as expected
 ```
 std::vector<Customer> CustomerList; 
-SaveToFile<CUU>( "CustomerList.cuu", CustomerList );
+cuu::SaveToFile<Text>( "CustomerList.cuu", CustomerList );
+```
+
+## Inheritance
+Easily include inherited members by
+This will inlcude all members provided for `Shape` in the cuu-ing of `Circle`:
+```
+CUU_REGISTER_INHERITANCE( Circle, Shape );
 ```
 
 ## Polymorphic types
-Easily serialize polymorphic pointers, e.g. contained in a list.
-Again, a single line of code is enough to register a base class (Shape) and its derived classes (Circle, Line, Triangle, Polygon):
+Easily serialize polymorphic pointers (std::unique_ptr, std::shared_ptr and raw pointers)
+The following line will register Shape pointers for polymorphic cuu-ing.
 ```
 CUU_REGISTER_POLYMORPHISM( Shape, Circle, Line, Triangle, Polygon );
 ```
 
 ## Easily Extendable
-Simple classes (POD) are handled as one-liners as seen above. 
-Looking at the code for supported types like std::vector or std::pair, you should be able to easily extend functionality to your more complex custom types. 
-Custom split Save/Load functions as well as Get/Set methods are available.
+Simple class members are handled as one-liners as seen above. For private members, access must be granted.
+Alternatively, get and set member-functions provided by your class can be used to cuu it.
+Looking at the code for supported containers like std::vector, you should be able to easily extend functionality to your own containers. 
+
