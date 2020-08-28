@@ -3,7 +3,7 @@
 ## C++ Serialization. **C**lean. **U**niversal. **U**sable.
 * Serialization of classes **with a single line of code**
 * Composite and polymorphic class support
-* STL support
+* Full STL support
 * Supported formats: Text, JSON, XML, as well as Binary
 * Easy to extend and customize
 
@@ -79,30 +79,44 @@ Customer MainCustomer;
 cuu::LoadFromFile<Text>( "Customer.cuu", MainCustomer );
 ```
 
-## STL Support
-All Standard Library containers and most data types are supported out of the box. The following will just work as expected
-```
-std::vector<Customer> CustomerList; 
-cuu::SaveToFile<Text>( "CustomerList.cuu", CustomerList );
-```
+## Name-value pairs vs. simple list
+You always have both options. `CUU( Order, ID, Total );` as seen above, 
+or `CUU_LIST( Order, ID, Total );` resulting in just `[5001, 1.99]`
+Containers are always treated as lists.
+
+## Member access
+Simple class members are handled as one-liners as seen above. 
+For private members, access must be granted by putting `CUU_ACCESS` in the class
+Alternatively, get and set member-functions provided by your class can be used.
 
 ## Inheritance
-Easily include inherited members by
+Easily include inherited members.
 This will inlcude all members provided for `Shape` in the cuu-ing of `Circle`:
 ```
 CUU_REGISTER_INHERITANCE( Circle, Shape );
 ```
 
 ## Polymorphic types
-Easily serialize polymorphic pointers (std::unique_ptr, std::shared_ptr and raw pointers)
-The following line will register Shape pointers for polymorphic cuu-ing.
+Easily serialize polymorphic pointers (std::unique_ptr, std::shared_ptr and raw pointers).
+The following line will register Shape pointers for polymorphic cuu-ing:
 ```
 CUU_REGISTER_POLYMORPHISM( Shape, Circle, Line, Triangle, Polygon );
 ```
 
-## Easily Extendable
-Simple class members are handled as one-liners as seen above. For private members, access must be granted.
-Alternatively, get and set member-functions provided by your class can be used to cuu it.
-Looking at the code for supported containers like std::vector, you should be able to easily extend functionality to your own containers. 
-You can even define your own custom format, if it is not too crazy.
+## STL Support
+All Standard Library containers and data types are supported out of the box. 
+The following will just automatically work as expected:
+```
+std::vector<Customer> CustomerList; 
+std::pair<int,Customer> IDCustomerPair; 
+std::optional<Customer> OptionalCustomer; 
+cuu::SaveToFile<Text>( "CustomerList.cuu", CustomerList, IDCustomerPair, OptionalCustomer );
+```
+
+## Customizable/Extendable
+You can specify per class whether your prefer linebreaks or inline for the output.
+You can also specify a floating-point format or print integers in hexadecimal or any base.
+You can even define a custom overall format with different delimiters, etc., if it's not too crazy.
+Looking at the supplied code for STL containers, pointers, and data types, you should be able
+to easily write similar code for your own custom containers and non-standard data types.
 
