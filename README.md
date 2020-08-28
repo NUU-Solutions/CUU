@@ -11,21 +11,19 @@
 * Just **#include "cuu.h"** 
 * Header-only library, no dependencies
 * C++20
-* Targeting Visual Studio 2019 (Portability should be straightforward)
 
 ## Motivation
-A recent project required saving and reloading relatively large custom data 
+A project required saving and reloading relatively large custom data 
 * in binary format (for performance reasons) 
 * in human readable form (for occasional easy inspection)
 
 I spent weeks with boost.serialization, cereal and libs11n. But, for various reasons, they just did not cut it. 
-So, I finally decided to roll my own, making use of crucial C++11/C++17 features. This is the result. 
+So, I finally decided to roll my own, making use of crucial C++11/C++17/C++20 features. This is the result. 
 
 **The focus is on simplicity and usability!**
 
 ## Formats
-Supported formats out of the box are: Text, Binary, JSON and XML. 
-You can define your own custom format, if it is not too crazy.
+Supported formats out of the box are: Text, JSON, XML, Binary and RAW.
 
 ## Example
 Consider the following Order and Customer classes
@@ -109,4 +107,5 @@ CUU_REGISTER_POLYMORPHISM( Shape, Circle, Line, Triangle, Polygon );
 Simple class members are handled as one-liners as seen above. For private members, access must be granted.
 Alternatively, get and set member-functions provided by your class can be used to cuu it.
 Looking at the code for supported containers like std::vector, you should be able to easily extend functionality to your own containers. 
+You can even define your own custom format, if it is not too crazy.
 
